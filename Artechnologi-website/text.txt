@@ -1,0 +1,26 @@
+git add .
+git commit -m "updated"
+git branch
+git checkout -b bname // to create new branch
+git push
+
+//
+
+git restore .
+git status // to chack the changeds status
+
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  images: {
+    unoptimized: true,
+  },
+  devIndicators: {
+    buildActivity: false,
+  },
+}
+
+export default nextConfig
