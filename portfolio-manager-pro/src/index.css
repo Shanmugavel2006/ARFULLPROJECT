@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 20% 97%;
+    --foreground: 30 10% 12%;
+
+    --card: 40 25% 99%;
+    --card-foreground: 30 10% 12%;
+
+    --popover: 40 25% 99%;
+    --popover-foreground: 30 10% 12%;
+
+    --primary: 172 50% 36%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 35 25% 93%;
+    --secondary-foreground: 30 10% 20%;
+
+    --muted: 35 15% 94%;
+    --muted-foreground: 30 8% 50%;
+
+    --accent: 35 30% 91%;
+    --accent-foreground: 30 10% 15%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 35 15% 89%;
+    --input: 35 15% 89%;
+    --ring: 172 50% 36%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+
+    --shadow-card: 0 1px 3px 0 hsl(30 10% 12% / 0.04), 0 1px 2px -1px hsl(30 10% 12% / 0.04);
+    --shadow-elevated: 0 10px 25px -5px hsl(30 10% 12% / 0.08), 0 8px 10px -6px hsl(30 10% 12% / 0.04);
+  }
+
+  .dark {
+    --background: 30 10% 8%;
+    --foreground: 40 20% 95%;
+    --card: 30 10% 10%;
+    --card-foreground: 40 20% 95%;
+    --popover: 30 10% 10%;
+    --popover-foreground: 40 20% 95%;
+    --primary: 172 50% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 30 10% 15%;
+    --secondary-foreground: 40 20% 90%;
+    --muted: 30 8% 18%;
+    --muted-foreground: 30 8% 60%;
+    --accent: 30 10% 15%;
+    --accent-foreground: 40 20% 95%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 30 8% 20%;
+    --input: 30 8% 20%;
+    --ring: 172 50% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+}
+
+/* Background animated blobs */
+.bg-animated {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bg-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  transform: translate3d(0,0,0);
+  mix-blend-mode: screen;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-40px) scale(1.05);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes hue {
+  0% {
+    filter: hue-rotate(0deg) blur(80px);
+  }
+  50% {
+    filter: hue-rotate(40deg) blur(70px);
+  }
+  100% {
+    filter: hue-rotate(0deg) blur(80px);
+  }
+}
+
